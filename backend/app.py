@@ -7,6 +7,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 FRONTEND_DIST = BASE_DIR.parent / "frontend" / "dist"
+MODEL_PATH = BASE_DIR / "model.pkl"
 
 app = Flask(__name__, static_folder=str(FRONTEND_DIST), static_url_path="/")
 CORS(app)
@@ -14,7 +15,8 @@ CORS(app)
 # ----------------------------
 # Load ML model
 # ----------------------------
-model = pickle.load(open("model.pkl", "rb"))
+with MODEL_PATH.open("rb") as model_file:
+    model = pickle.load(model_file)
 
 # ----------------------------
 # Health Calculations
