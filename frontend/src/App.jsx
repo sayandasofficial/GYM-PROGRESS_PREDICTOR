@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="app">
       <header className="top-nav">
-        <div className="top-nav-logo">FitsAI</div>
+        <div className="top-nav-logo">FitsAI made by Sayan Das</div>
       </header>
 
       <Dashboard
